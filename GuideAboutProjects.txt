@@ -1,0 +1,27 @@
+Catalog is our project. We started use with django-admin startproject ProjectName.If u want use some apps(etc. pages) u have to install with manage.py 
+    py manage.py startapp pages
+Then, We config urls settings. If u want use pages, u add settings parameters under. For instance like as, 
+
+    INSTALLED_APPS = [
+    'pages.apps.PagesConfig', ...]
+
+This command block is say,
+    def index(request):
+    return render(request, 'pages/index.html')
+u send request to pages/index.html. Thus(Böylece) we can define what we should
+
+And then u should import lib like as at here,
+
+    from django.urls import path"
+    from . import views"
+
+    urlpatterns = [
+        path('', views.index, name='index'),
+        path('about', views.about, name='about'),
+    ]
+These are means 127.0.0.1/ -> Index Pages, 127.0.0.1/about -> About Pages
+U should be carefully due to define root path. Because we don't define another parameters in root. Also, this define in subjacent main folder into urls.py
+    path('', include('pages.urls'))
+    # If add params into nails, your pages will look like as  127.0.0.1/pages
+So, ıf we would add params, we should write  127.0.0.1/pages/about on browser
+
