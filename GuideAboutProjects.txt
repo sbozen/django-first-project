@@ -25,3 +25,14 @@ U should be carefully due to define root path. Because we don't define another p
     # If add params into nails, your pages will look like as  127.0.0.1/pages
 So, ıf we would add params, we should write  127.0.0.1/pages/about on browser
 
+
+# Documentation for static-files https://docs.djangoproject.com/en/4.0/howto/static-files/
+If u use external static folders in project, You add this line in INSTALLED_APPS
+    'django.contrib.staticfiles',
+Then, you define /static/ for STATIC_URL. Settings seems good. Now, we create static folder in project. That's great. Anymore we can use static files in project. How can we use? Basically like as this,
+    Add {% load static %} top on pages
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+
+
