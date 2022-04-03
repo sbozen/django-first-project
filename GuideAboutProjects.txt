@@ -1,3 +1,22 @@
+First let's define creating the django project
+            DJANGO notes
+Firstly, u should create virtual enviroment. This is important due to install library in project. Thus, we'll install on only project 
+py -m venv envProjectName
+ .\myproject\Scripts\activate
+pip install django
+
+ pip freeze -> This is check load packet,libs in your project
+
+Then, these are need things for start 
+py -m django-admin startproject projectName
+(Don't worry! If u don't remember how was start, u have to write django-admin help. U find all commands for project)
+Finally, you create Django project, yey!
+If u write this command line 
+   py manage.py runserver 
+You can see on browser. 
+
+Finally, Let's start.
+
 Catalog is our project. We started use with django-admin startproject ProjectName.If u want use some apps(etc. pages) u have to install with manage.py 
     py manage.py startapp pages
 Then, We config urls settings. If u want use pages, u add settings parameters under. For instance like as, 
@@ -27,11 +46,40 @@ So, ıf we would add params, we should write  127.0.0.1/pages/about on browser
 
 
 # Documentation for static-files https://docs.djangoproject.com/en/4.0/howto/static-files/
+
 If u use external static folders in project, You add this line in INSTALLED_APPS
     'django.contrib.staticfiles',
 Then, you define /static/ for STATIC_URL. Settings seems good. Now, we create static folder in project. That's great. Anymore we can use static files in project. How can we use? Basically like as this,
     Add {% load static %} top on pages
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+If u have sticky bars on project, you can use this way, 
+    {% include 'partials/_navbar.html' %}
+
+If u want add more apps in project, this command solve your request.(We can simulate create components.) 
+     py manage.py startapp movies
+And we introduce in urls.py againly. If we can come db operations,
+Firstly, 
+    py manage.py migrate
+This command create db responsibilty and set settings. We can use different database. But django is come default sqlLite. You can look django documantaion for installation another database.
+Now, we need superuser at the project. What should we do?
+    py manage.py createsuperuser
+Thus, you can sign admin panel with use this user information
+
+We'll create new table in project. Enter the models.py under the movies folder.
+And, add commands according to our wishes (we need look documantaion for describe create)
+    class Movie(models.Model):
+    #wishes
+    name: models.CharField(max_length=100)  # Input text
+    description = models.TextField()
+    image = models.CharField(max_length=50)
+    created_date = models.DateTimeField(auto_now_add=True)
+
+Then we need migrate for create table on admin panel. Migrate is like as columns move to admin.Create migrate after describe in models with this command. 
+    py manage.py makemigrations
+This will give output file
+
+
+
 
 
 
