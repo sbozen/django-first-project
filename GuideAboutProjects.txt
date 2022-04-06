@@ -76,7 +76,10 @@ And, add commands according to our wishes (we need look documantaion for describ
 
 Then we need migrate for create table on admin panel. Migrate is like as columns move to admin.Create migrate after describe in models with this command. 
     py manage.py makemigrations
-This will give output file
+This will give output file in db admin. 
+
+If u want rename models description,
+    name = models.CharField(max_length=100,verbose_name='Movie Name')
 
 
 

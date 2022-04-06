@@ -20,6 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('pages.urls')),
     path('movies/', include('movies.urls')),
+    path('user/', include('user.urls')),
     path('admin/', admin.site.urls),
     # If u add paramaters into nails u can write on 127.0.0.1/pages
 ]
